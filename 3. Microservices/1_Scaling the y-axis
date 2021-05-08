@@ -1,0 +1,33 @@
+The last axis of the scale cube to cover is the y axis. Scaling along this axis means decomposing your app into microservices. 
+
+Consider our advice booth, remember, we're kinda good at advice so this booth is gonna be very popular, it has a lot of traffic. 
+It's our job to handle all of this traffic efficiently and decrease the wait times for our clients. One way to do this is to create multiple advice booths.
+
+In this scenario, each booth specializes in providing advice on a specific topic. One booth is dedicated to finance advice, another booth is dedicated to love 
+advice, and the third booth is dedicated to wellness advice. The traffic splits itself based upon its needs.
+
+But, who are we kidding, the love advice booth is the most popular booth. Since this particular service is receiving more traffic, we can scale it along 
+the x axis by cloning more love advice booths. We can clone as many as we need to handle the traffic. We just scaled the advice booth along the y axis 
+and split it up into booths that are designed to handle a specific feature. The monolithic application handles all of its features in one app, a single 
+code base, all running in the same process. Here, we have an example of a monolith, a ticketing app. This application allows customers to find shows 
+and purchase tickets for those shows. Features can be divided into shows, a catalog of upcoming plays and concerts, theaters, information about where 
+the shows take place, and how many people can attend, search for searching shows and theaters, checkout for purchasing tickets and customers for your users.
+
+Instead of running all of these features in the same service using the same code base, we can divide the functionality of our application up into smaller 
+applications that are each designed to handle only specific features. These smaller services are called microservices. They are independent applications 
+that are designed to work together. They run independently, launch independently, and scale independently. If a particular service is receiving more traffic, 
+we can scale that and only that service. For instance, if the checkout process is receiving the most traffic, we can clone that into multiple instances.
+
+Microservices don't only allow us to scale applications, they allow us to scale engineering teams as well. As your company grows, you will inevitably hire more
+engineers. Each engineer may have a specific area of expertise. For instance, you have front end engineers, back end engineers, database administrators,
+and system runtime engineers. Your team and your application will eventually grow to a size where everyone working on the same monolithic application becomes
+very difficult. Microservices allow us to scale our teams as well. Each service is a small, independent application.
+So each service can be hosted and managed by a small independent team. Each team gets its share of specialized engineers and they will all work together 
+to build, deploy, host, and manage a specific service. Some services can even be handled by third parties. Auth0 is a service that you can use to manage 
+users and authorization. Stripe is a payment service, that can handle processing payment transactions. This means that your engineers and your team can 
+focus on the services that are specific to your business. There are many other third party services that you can consider incorporating in your applications.
+
+There's everything from geo mapping, to messaging, continuous integration, database services.
+
+In this lessson, we're gonna examine how we can decompose our applications into services. We'll also take a look at some of the challenges that we will 
+face when moving to microservice architectures.

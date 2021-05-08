@@ -1,0 +1,10 @@
+To scale along the x-axis means to clone your app. This means running the exact same application in another instance, and then handling the traffic
+between the two instances instead of one. For example, let's say you have a business or a server that provides advice to clients. As word gets out 
+about your business, you'll be providing a lot of advice. This could lead to long lines and long wait times among your clients. How are you gonna 
+deal with all this traffic? Well, one option is to clone your booth. That is to open more advice booths, and split the traffic between them.
+Each booth provides the exact same service, and they each operate independently on a part of the traffic. We just scaled our advice booth across 
+the x-axis. We can scale our node application, even the monolith, by running separate instances of the same application and then splitting the 
+traffic between those instances. We can scale further along the x-axis by running multiple instances of our application on multiple machines.
+Today, it's rather easy to scale our application by running multiple instances across multiple data centers positioned worldwide. If a particular
+area or region gets more traffic, you simply clone more instances in that region. In the next lesson, we'll look at how we can fork a node process
+into multiple instances.

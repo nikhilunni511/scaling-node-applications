@@ -1,0 +1,17 @@
+There are many ways to scale applications. Sometimes it helps to have a good visual guide that can accommodate all of the possibilities when 
+it comes to scaling your application. The scale cube is a diagram that is a good tool for visually understanding all the ways in which our 
+applications can be scaled. It was originally introduced in the book, The Art of Scalability, by Martin Abbott and Michael Fisher. 
+The bottom left corner of the cube represents the least scaled application possible, a single instance monolith. This means you have one 
+application running in a single instance on a single computer. As we scale our applications we move closer to the top right hand corner of 
+the scale cube. Applications on this side of the diagram could represent multi-instance applications that have been distributed into microservices 
+and contain partitioned database clusters. Applications that are closer to the top right hand corner of the cube should be able to handle massive 
+amounts of traffic. The X axis of the scale cube represents cloning. This means running multiple instances of an application and splitting the 
+traffic between those instances. The closer we are to the left side of this axis the fewer instances we have. All the way over on the left side 
+we might only have a couple instance running on a single machine. The more we move to the right on this axis the more instances we run. We can 
+split our application up into many instances that run across many different machines even across different data centers around the world. At a 
+certain point the data that our application stores will run out of disc space and or memory. Or maybe the database traffic will become too great 
+to handle with a single database. The Z axis represents scaling the data capabilities of our applications. On this axis we'll split our database 
+up into several instances that are only responsible for a part of the whole dataset. Along the Y axis we break monolithic applications up into 
+microservices. This means dividing the application into services that are designed to focus on a single feature and work together with other 
+services to compose the functionality of our entire application. In this course we're gonna examine what it means to scale a Node.js application 
+on every axis of this cube. Each chapter we will examine a different axis and demonstrate techniques for scaling along that axis. 

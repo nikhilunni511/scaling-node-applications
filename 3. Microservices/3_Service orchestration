@@ -1,0 +1,32 @@
+ When we decompose our applications into microservices, we have to consider how they will work together.
+ Sometimes a single action performed by a client will need to work across several services to complete that action.
+ Consider the checkout process. Theaters have limited space, so when a user purchases a ticket, their seat needs to be reserved.
+ If the show is sold out, then the user should not be able to purchase any tickets for that show. Before a user can purchase a ticket,
+ they need to make sure that the show has seats available, that functionality is found in the show service. 
+ If there are seats, then they need to checkout and purchase a ticket with the checkout process. 
+ Once the ticket is purchase, the show service will then need to be updated, it will need to reserve the seats for that customer for a specific show.
+ Sometimes we place this orchestration requirement on the client itself, this means that in front-end applications or mobile applications, or admin portals 
+ that they need to know how to work with each service and make sure that they are checking the shows for seats before proceeding to the checkout on their own.
+ But if we want to be nice to our clients, we should provide a single checkout process that can be evoked and handle the orchestration details on the back-end.
+ 
+ One possible solution is 
+ 
+ 1. API Orchestration, this means that we would provide a single API that can be used to interact with all of the clients and orchestrate
+ the microservices that are required to perform an action. In this example, any client can simply send a checkout request to the API and the API will handle 
+ the details with the checkout and show service.
+ 
+ 2. Another orchestration technique is to incorporate a messaging layer, you can think of a messaging layer as being like a back door to your service.
+ Customers come in through the front door, the API and the goods that are purchased from other businesses are delivered in the back door.
+A messaging layer is typically a TCP application that can be used to communicate with other microservices.
+
+In this example, customers can checkout with
+ the checkout service and the checkout service will update that action on the messaging layer, which will in turn reserve the seats for the show.
+ The details of checking the show service for available seats and reserving them are all handled on the back-end via a middleware to middleware communication.
+
+ Sometimes a microservice may briefly go down or become unavailable, a single service failure may not be a show stopper for the checkout process,
+ consider a situation where a customer wants to purchase tickets, but the seats cannot be reserved because the show service is down. 
+ Well instead of stopping the transaction, checkout service could sell the tickets and reserve the seats when the show service becomes available.
+ Your messaging layer could queue up the reservations and when the show service becomes available, you can operate on the message queue and reserve all of 
+ the seats that needed to be reserved while the service was down. These are just a couple of techniques that are available to you when it's time to orchestrate 
+ your microservices. In the next couple of lessons we will look at some code samples to see how we can orchestrate our microservices using API layers and 
+ messaging layers.

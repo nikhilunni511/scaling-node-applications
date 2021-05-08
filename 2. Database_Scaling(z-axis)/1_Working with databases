@@ -1,0 +1,12 @@
+When scaling Node.js applications across instances, the need for a database arises. When we have multiple instances of the same process cloned, they need 
+to act on the same data, but the memory used by each instance is not shared. When we create our change data on a single instance using memory, that data 
+is not automatically shared across all of your processes. The easiest way to synchronize and share data across all of your processes, is by using a database. 
+A database provides a single access point to store data. If all of your instances communicate with the same database, then they all should have the correct 
+data. I do not recommend building your own database. There are a lot of databases out there that you can implement. The choices range from reliable open-source 
+projects to large enterprise databases that have been around for decades. As a Node.js developer, it is important that you learn to use a database and start 
+incorporating it in your projects early so that they are ready to scale. It's most likely not enough to simply install a database on the same machine that 
+you're using to host your application. Remember, as we scale, we will be scaling across different machines. All of your instance will need to have access 
+to up-to-date, accurate data, so it's important that you use a dedicated database service that is accessible by all of your instances. As you scale your 
+application, you can also scale your database service and make it capable of handling more traffic and data. You can also use third party database services. 
+These services will charge you a monthly fee based upon your traffic and data. Scaling is already baked into these services. Most services provide an easy 
+solution to scale your database cluster or partition data. As you scale your data layer, your monthly service fee will increase.

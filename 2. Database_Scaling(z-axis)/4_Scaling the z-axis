@@ -1,0 +1,28 @@
+As your traffic grows, you will need to scale your data layer.
+Consider our advice booth. Our advice customers have records that we use to track whether or not the advice is working. 
+Since we cloned our advice booth into several booths already, they will need a place to store and look up data records. 
+So, we'll need a records booth. Each data record takes up space. So, in this example, our records booth will require a file cabinet.
+
+So, what happens when there's lots of records to store and look up? 
+
+Well, we need to split our record booths and add more file cabinets to store all of the records. 
+Here, we split our record booths into booths that are designed to handle only a part of the overall load. 
+One booth will handle records for customers that have names that start with the letter A through the letter K. 
+Another booth will handle the load from L to P and a third one will handle the load 
+from Q to Z. We just scaled the advice booth along the z-axis. The z-axis of the scale cube is about scaling your database.
+
+The technique we just deployed is called horizontal partitioning. Horizontal partitioning or sharding involves adding more database instances that are each designed to store and provide 
+access to a part of the data. Each database is called a shard. There are many ways in which your database can be horizontally partitioned.
+You can horizontally partition your database by the alphabet, as we did with the advice booth. You can also partition your database by region or zone. You can 
+partition your database by customer age, random identifiers, there are literally dozens of ways to partition your database. You have to decide upon the 
+best solution that works for your application and your business.
+
+Don't scale your database unless you have to. 
+
+Situations that will require you to scale:
+1. your data layer are too much data. So, when you start to overflow the disc or memory space because you're saving and working with too much data. 
+2. More write operations than the server can handle. So, when your database is doing a lot of work and too much work than one server can handle.
+3. When you experience slow performance and this is strange but it's actually often cheaper to host shards than one database. So, if you're hosting your own database, you'll want 
+to use their tools and patterns for implementing horizontal partitioning.
+
+Each of a popular databases have a built-in or associated solution to handle creating shards.
